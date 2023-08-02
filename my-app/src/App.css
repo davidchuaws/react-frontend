@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 250px;
+  background-color: #f0f0f0;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.Sidebar li {
+  padding: 5px 0;
+}
+
+.Sidebar button {
+  margin-top: auto;
+}
+
+.ProviderDetails {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.ProviderDetails img {
+  max-width: 200px;
+  margin: 10px auto;
+  display: block;
+}
+
+.ProviderDetails button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #282c34;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

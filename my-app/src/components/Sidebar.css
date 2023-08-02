@@ -1,0 +1,33 @@
+.Sidebar {
+    /* ... (existing styles) ... */
+  }
+  
+  .Sidebar ul {
+    /* ... (existing styles) ... */
+  }
+  
+  .Sidebar li {
+    /* ... (existing styles) ... */
+    position: relative; /* Add this line to make li a reference point for positioning Dropdown */
+  }
+  
+  .Dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .Dropdown img {
+    max-width: 50px;
+    margin-right: 10px;
+  }
+  
+  .Dropdown p {
+    margin: 0;
+  }
+  
