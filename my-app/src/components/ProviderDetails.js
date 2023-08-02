@@ -14,7 +14,7 @@ const ProviderDetails = ({ provider, onBackClick }) => {
       .then((data) => {
 
         console.log(data['apis']);
-        function changeDetails (event) {
+        function changeDetails() {
             setDetails({
                 title: data['apis'][provider]['info']['title'],
                 logo: data['apis'][provider]['info']['x-logo']['url']
@@ -22,9 +22,6 @@ const ProviderDetails = ({ provider, onBackClick }) => {
             console.log(data['apis'][provider]['info']['title'])
         };
         changeDetails()
-            // this.setDetails({title: data['apis'][provider]['info']['title']})
-        // title: data['apis'][provider]['info']['title'],
-        // logo: data['apis'][provider]['info']['x-logo']['url']
       })
       .catch((error) => {
         console.error('Error fetching provider details:', error);
@@ -37,7 +34,14 @@ const ProviderDetails = ({ provider, onBackClick }) => {
         <h2>{details['title']}</h2>
         <img src={details["logo"]} alt={provider} />
       </span>
-      <p>{details.info && details.info.description}</p>
+      <h3>Description</h3>
+      <p>Insert description</p>
+      <h3>Swagger</h3>
+      <p>Insert url</p>
+      <h3>Contact</h3>
+      <p>Email</p>
+      <p>Name</p>
+      <p>Url</p>
       <button onClick={onBackClick}>Explore more APIs</button>
     </div>
   );

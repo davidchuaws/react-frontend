@@ -5,15 +5,13 @@ import useClickOutside from "./useClickOutside";
 const Sidebar = ({ providers, onProviderClick }) => {
   const [selectedProvider, setSelectedProvider] = useState(null);
   const dropdownRef = useRef(null);
-  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleProviderClick = (provider) => {
-    setSelectedProvider(provider);
-    setShowDropdown(false);
-    onProviderClick(provider);
+    setSelectedProvider(selectedProvider === provider ? null : provider);
+    // console.log("Selected provider home: " + provider)
   };
   useClickOutside(dropdownRef, () => {
-    setShowDropdown(false);
+    setSelectedProvider(null);
   });
 
   return (
@@ -21,10 +19,12 @@ const Sidebar = ({ providers, onProviderClick }) => {
       <h3>Select Provider</h3>
       <ul>
         {providers.map((provider) => (
-          <li key={provider} onClick={() => handleProviderClick(provider)}>
-            {provider}
+          <li key={provider}>
+            <button onClick={() => handleProviderClick(provider)}>
+              {provider}
+            </button>
             {selectedProvider === provider && (
-              <Dropdown provider={provider} />
+              <Dropdown provider={provider}/>
             )}
           </li>
         ))}
@@ -34,14 +34,25 @@ const Sidebar = ({ providers, onProviderClick }) => {
 };
 
 const Dropdown = ({ provider }) => {
-  const [title, setTitle] = useState(null);
-  const [logoUrl, setLogoUrl] = useState(null);
+  const [details, setDetails] = useState({title: "", logo: ""});
+
 
   fetch(`https://api.apis.guru/v2/${provider}.json`)
   .then((response) => response.json())
   .then((data) => {
-    setLogoUrl(data['apis'][provider]['info']['title']);
-    setTitle(data['apis'][provider]['info']['x-logo']['url']);
+    console.log(data['apis']);
+    function changeDetails (event) {
+      // console.log(Object.keys(data['apis']))
+      var tmp = Object.keys(data['apis'])[0];
+      // console.log(tmp)
+      console.log(data['apis'][tmp]['info']['title'])
+      console.log(data['apis'][tmp]['info']['x-logo']['url'])
+      setDetails({
+          title: data['apis'][tmp]['info']['title'],
+          logo: data['apis'][tmp]['info']['x-logo']['url']
+      }) 
+  };
+  changeDetails()
   })
   .catch((error) => {
     console.error('Error fetching provider details:', error);
@@ -49,8 +60,8 @@ const Dropdown = ({ provider }) => {
 
   return (
     <div className="Dropdown">
-      <img src={logoUrl} alt={provider} />
-      <p>{title}</p>
+      <img src={details["logo"]} alt={provider} />
+      <p>{details['title']}</p>
     </div>
   );
 };
