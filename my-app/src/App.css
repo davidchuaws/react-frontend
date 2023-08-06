@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #48647c;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,51 +18,101 @@
   color: white;
 }
 
-.Sidebar {
+.App-button {
+  background-color: #2596be;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  border: none;
+}
+
+.Dropdown {
   position: absolute;
+  top: 100%;
   left: 0;
-  top: 0;
-  width: 250px;
+  width: 100%;
+  height: auto;
   background-color: #f0f0f0;
-  height: 100vh;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
+  padding: 10px;
+  display: inline-block;
   align-items: center;
-  transition: transform 5s ease-in-out;
-  transform: translateX(0);
+}
+
+.Dropdown img {
+  max-width: 50px;
+  margin-right: 10px;
+}
+
+.Dropdown p {
+  margin: 0;
+}
+
+.DownArrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+
+.Sidebar {
+position: absolute;
+left: 0;
+top: 0;
+width: 250px;
+background-color: #f0f0f0;
+height: 100vh;
+padding: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+transition: transform 5s ease-in-out;
+transform: translateX(0);
 }
 
 .Sidebar ul {
-  list-style: none;
-  padding: 0;
+list-style: none;
+padding: 0;
 }
 
 .Sidebar li {
-  padding: 5px 0;
+padding: 5px 0;
+position: relative;
 }
 
 .Sidebar button {
-  margin-top: auto;
+margin-top: auto;
 }
 
+
 .ProviderDetails {
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
+margin-top: 20px;
+padding: 20px;
+border: 1px solid #ccc;
 }
 
 .ProviderDetails img {
-  max-width: 200px;
-  margin: 10px auto;
-  display: block;
+max-width: 200px;
+margin: 10px auto;
+display: block;
 }
 
 .ProviderDetails button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #282c34;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+margin-top: 20px;
+padding: 10px 20px;
+background-color: #282c34;
+color: #fff;
+border: none;
+cursor: pointer;
+}
+
+.DropdownDetails {
+  padding: auto;
+}
+
+.DropdownDetails img {
+  height: 1em; 
+  width: 1em;
 }
