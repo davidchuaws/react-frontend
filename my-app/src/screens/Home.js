@@ -22,11 +22,12 @@ const Home = () => {
     fetchProviders();
   }, []);
 
-  function getProviderDetails(provider) {
-    fetch(`https://api.apis.guru/v2/${provider}.json`)
+  async function getProviderDetails(provider) {
+    await fetch(`https://api.apis.guru/v2/${provider}.json`)
     .then((response) => response.json())
     .then((data) => {
       var tmp = Object.keys(data['apis'])[0];
+      console.log(data['apis'])
       setProviderDetails({
           title: data['apis'][tmp]['info']['title'],
           logo: data['apis'][tmp]['info']['x-logo']['url'],
