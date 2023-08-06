@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #48647c;
   min-height: 100vh;
@@ -15,7 +10,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-button {
@@ -27,7 +21,7 @@
 }
 
 .Dropdown {
-  position: absolute;
+  position: relative;
   top: 100%;
   left: 0;
   width: 100%;
@@ -80,6 +74,7 @@ padding: 0;
 .Sidebar li {
 padding: 5px 0;
 position: relative;
+
 }
 
 .Sidebar button {
@@ -103,13 +98,16 @@ display: block;
 margin-top: 20px;
 padding: 10px 20px;
 background-color: #282c34;
-color: #fff;
 border: none;
 cursor: pointer;
 }
 
 .DropdownDetails {
   padding: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .DropdownDetails img {
